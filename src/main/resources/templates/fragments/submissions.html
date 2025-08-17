@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="submissions-list">
+        <div class="submissions">
+            <h2>Submitted Forms (<span th:text="${totalSubmissions}">0</span> total)</h2>
+            
+            <div th:if="${submissions.empty}">
+                <p>No submissions yet. Fill out the form above to get started!</p>
+            </div>
+            
+            <div th:each="submission : ${submissions}" class="submission-card">
+                <div class="submission-header">
+                    <strong th:text="${submission.name}">Name</strong> 
+                    (<span th:text="${submission.email}">email</span>)
+                </div>
+                <div th:text="${submission.message}">Message content</div>
+                <div class="submission-time">
+                    Submitted: <span th:text="${#temporals.format(submission.submittedAt, 'yyyy-MM-dd HH:mm:ss')}">Time</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
