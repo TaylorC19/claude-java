@@ -3,6 +3,7 @@ package com.example.claude_java.model;
 import java.time.LocalDateTime;
 
 public class FormSubmission {
+    private Long id;
     private String name;
     private String email;
     private String message;
@@ -49,5 +50,13 @@ public class FormSubmission {
     
     public void setSubmittedAt(LocalDateTime submittedAt) {
         this.submittedAt = submittedAt;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
     }
 }
